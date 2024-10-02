@@ -17,20 +17,20 @@
 
         <div class="card">
 
-           {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch']) !!}
+            {!! html()->model($user)->form('PATCH', route('users.update', $user->id))->open() !!}
 
             <div class="card-body">
                 <div class="row">
                     @include('users.fields')
                 </div>
             </div>
-
+            
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                {!! html()->submit('Save')->class('btn btn-primary') !!}
                 <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</a>
             </div>
-
-           {!! Form::close() !!}
+            
+            {!! html()->form()->close() !!}
 
        </div>
     </div>

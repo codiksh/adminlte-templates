@@ -1,6 +1,6 @@
 <?php
 
-namespace InfyOm\AdminLTETemplates;
+namespace Codiksh\AdminLTETemplates;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;

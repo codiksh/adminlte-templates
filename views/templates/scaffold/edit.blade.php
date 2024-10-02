@@ -23,21 +23,26 @@
 
         <div class="card">
 
-            @{!! Form::model(${{ $config->modelNames->camel }}, ['route' => ['{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.update', ${{ $config->modelNames->camel }}->{{ $config->primaryName }}], 'method' => 'patch']) !!}
 
-            <div class="card-body">
-                <div class="row">
-                    @@include('{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->snakePlural }}.fields')
+            @{!! html()->model(${{ $config->modelNames->camel }}, [
+                'route' => ['{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.update', ${{ $config->modelNames->camel }}->{{ $config->primaryName }}],
+                'method' => 'patch'
+            ]) !!}
+
+                <div class="card-body">
+                    <div class="row">
+                        @@include('{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->snakePlural }}.fields')
+                    </div>
                 </div>
-            </div>
 
-            <div class="card-footer">
-                @{!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.index') }}" class="btn btn-default">@if($config->options->localized) @@lang('crud.cancel') @else Cancel @endif</a>
-            </div>
+                <div class="card-footer">   
 
-            @{!! Form::close() !!}
+                    @{!! html()->submit('Save')->class('btn btn-primary') !!}
+                    <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.index') }}" class="btn btn-default">@if($config->options->localized) @@lang('crud.cancel') @else Cancel @endif</a>
+                </div>   
 
-        </div>
+            @{!! html()->form()->close() !!}
+        
+        </div>        
     </div>
 @@endsection
