@@ -22,7 +22,7 @@
         @@include('adminlte-templates::common.errors')
 
         <div class="card">
-            @{!! html()->form('POST', route('{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.store'))->open() !!}
+            @{!! html()->form('POST', route('{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.store'))->class('submitsByAjax')->acceptsFiles()->open() !!}
                 <div class="card-body">
                     <div class="row">
                         @@include('{{ $config->prefixes->getViewPrefixForInclude() }}{{ $config->modelNames->snakePlural }}.fields')
