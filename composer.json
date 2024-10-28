@@ -35,12 +35,6 @@
             ]
         }
     },
-    "funding": [
-        {
-            "type": "opencollective",
-            "url": "https://opencollective.com/infyomlabs"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
